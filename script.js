@@ -3,11 +3,24 @@
 
 var container = $(".container");
 var dayHours =["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM"];
-var hour = moment().format('h A');
+// var dayHoursM =["9 AM", "10 AM", "11 AM", "12 PM", "13 PM", "14 PM", "15 PM", "16 PM", "17 PM"];
+var hour = moment().format('HH');
 console.log(hour)
 
+var dayHoursArr = [
+{hour:"9 AM", hourM:9}, 
+{hour:"10 AM", hourM:10}, 
+{hour:"11 AM", hourM:11}, 
+{hour:"12 PM", hourM:12}, 
+{hour:"1 PM", hourM:13},
+{hour:"2 PM", hourM:14},
+{hour:"3 PM", hourM:15},
+{hour:"4 PM", hourM:16},
+{hour:"5 PM", hourM:17},
+];
+console.log(dayHoursArr)
 
-for (var i = 0; i< dayHours.length; i++) {
+for (var i = 0; i< dayHoursArr.length; i++) {
     var newDivRow = $("<div>" +"</div>");
     newDivRow.addClass("row");
     container.append(newDivRow);
@@ -16,7 +29,7 @@ for (var i = 0; i< dayHours.length; i++) {
   newDivCol2.addClass("col-md-2");
   newDivRow.append(newDivCol2);
 
-  var spanCol2 = $("<span>"+ dayHours[i] + "</span>");
+  var spanCol2 = $("<span>"+ dayHoursArr[i].hour + "</span>");
   spanCol2.addClass("time-block")
   newDivCol2.append(spanCol2);
 
@@ -36,12 +49,12 @@ for (var i = 0; i< dayHours.length; i++) {
   icon.addClass("far fa-2x fa-save");
   newDivCol1.append(icon);
 
-  if (hour == dayHours[i]) {
+  if (hour == dayHoursArr[i].hourM) {
     newDivCol9.addClass("present")}
- else if (hour < dayHours[i] ){
+ else if (hour < dayHoursArr[i].hourM ){
     newDivCol9.addClass("future") 
  }
- else if (hour > dayHours[i]) {
+ else if (hour > dayHoursArr[i].hourM) {
     newDivCol9.addClass("past")
  }
     
