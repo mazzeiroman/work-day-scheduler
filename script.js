@@ -18,6 +18,10 @@ var dayHoursArr = [
 {hour:"4 PM", hourM:16},
 {hour:"5 PM", hourM:17},
 ];
+
+var hourIndex = [1,2,3,4,5,6,7,8,9];
+var saveId = [1,2,3,4,5,6,7,8,9];
+
 console.log(dayHoursArr)
 
 for (var i = 0; i< dayHoursArr.length; i++) {
@@ -39,6 +43,7 @@ for (var i = 0; i< dayHoursArr.length; i++) {
 
   var newInput9 = $("<input>");
   newInput9.addClass("dailyPlan");
+  newInput9.attr('hourIndex', hourIndex[i]);
   newDivCol9.append(newInput9);
 
 //   var storePlans =  newInput9.val();
@@ -51,6 +56,7 @@ for (var i = 0; i< dayHoursArr.length; i++) {
 
   var icon = $("<i>" + "</i>");
   icon.addClass("far fa-2x fa-save");
+  icon.attr('saveId', saveId[i]);
   newDivCol1.append(icon);
 
   if (hour == dayHoursArr[i].hourM) {
@@ -68,24 +74,55 @@ for (var i = 0; i< dayHoursArr.length; i++) {
 //  console.log(moment(dayHours[i]));
   
 }
-// var storePlans =  newInput9.val();
 
+for (var i = 0; i< dayHoursArr.length; i++) {
 $(document).on('click','i', function(event) {
-    event.preventDefault();  
+    // event.preventDefault();
+    if (hourIndex == saveId) {
+    console.log(event.target)};
 
-    var usersInput = 
-    {
-        text: newInput9.val()
-    };
-    var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+    })
+}
 
-    console.log(usersArray);
-    usersArray.push(usersInput);
-    localStorage.setItem('usersInput', JSON.stringify(usersArray));
-    // var storePlans =  newInput9.val();
-    // var storePlansArray =  (localStorage.getItem('storePlans')) || [];
-    // storePlans.push(storePlansArray);
-    // localStorage.setItem("storePlans", JSON.stringify(storePlansArray));
+//     var usersInput =
+//     {
+//         text: newInput9.val()
+//     };
+//     // SET TO LOCAL STORAGE FIRST:
+//     // console.log(usersArray);
+//     // usersArray.push(usersInput);
+//     localStorage.setItem('usersInput', JSON.stringify(usersArray));
+//     // THEN GET IT FROM LOCAL STORAGE
+//     getFromLocalStorage()
+ 
+//  });
+// }
 
-    console.log(usersInput);
-  }); 
+//  function getFromLocalStorage(){
+     
+//      var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+//      usersArray.push(usersInput);
+
+//      //you will need to loop through each of the hours in your day planner and set the text content for each item in local storage
+//  }
+
+
+
+
+
+// $(document).on('click','i', function(event) {
+//     event.preventDefault();  
+
+//     var usersInput = 
+//     {
+//         text: newInput9.val()
+//     };
+//     var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+
+//     console.log(usersArray);
+//     usersArray.push(usersInput);
+//     localStorage.setItem('usersInput', JSON.stringify(usersArray));
+    
+
+//     console.log(usersInput);
+//   }); 
