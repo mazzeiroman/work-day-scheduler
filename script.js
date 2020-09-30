@@ -51,7 +51,7 @@ for (var i = 0; i< dayHoursArr.length; i++) {
 
 
   var newDivCol1 =  $("<div>" + "</div>");
-  newDivCol1.addClass("col-md-1");
+  newDivCol1.addClass("col-md-1 save");
   newDivRow.append(newDivCol1);
 
   var icon = $("<i>" + "</i>");
@@ -70,19 +70,64 @@ for (var i = 0; i< dayHoursArr.length; i++) {
    
    
  }
+}
+ $(document).on('click', '.save', function(event) {
+    event.preventDefault();  
+
+   var col1 = $(this).closest(".row").find("input");
+    console.log($(col1).val());
+  
+        var usersInput =
+    {
+        text: col1.val()
+    };
+    var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+    // SET TO LOCAL STORAGE FIRST:
+    console.log(usersArray);
+    usersArray.push(usersInput);
+    localStorage.setItem('usersInput', JSON.stringify(usersArray));
+    for (var i =0; i< dayHoursArr.length; i++) {
+   var savedImput = $(".dailyPlan").text(usersInput.text)
+//    newInput9.append(savedImput)
+    }
+    // THEN GET IT FROM LOCAL STORAGE
+    // getFromLocalStorage()
+ 
+ });
+
+
+//  function getFromLocalStorage(){
+     
+//      var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+//      usersArray.push(usersInput);
+
+//      //you will need to loop through each of the hours in your day planner and set the text content for each item in local storage
+//  };
+
     
 //  console.log(moment(dayHours[i]));
   
-}
 
-for (var i = 0; i< dayHoursArr.length; i++) {
-$(document).on('click','i', function(event) {
-    // event.preventDefault();
-    if (hourIndex == saveId) {
-    console.log(event.target)};
 
-    })
-}
+
+  
+
+
+
+
+
+
+
+
+
+// for (var i = 0; i< dayHoursArr.length; i++) {
+// $(document).on('click','i', function(event) {
+//     // event.preventDefault();
+//     if (hourIndex == saveId) {
+//     console.log(event.target)};
+
+//     })
+// }
 
 //     var usersInput =
 //     {
