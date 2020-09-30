@@ -41,6 +41,10 @@ for (var i = 0; i< dayHoursArr.length; i++) {
   newInput9.addClass("dailyPlan");
   newDivCol9.append(newInput9);
 
+//   var storePlans =  newInput9.val();
+//   console.log(storePlans);
+
+
   var newDivCol1 =  $("<div>" + "</div>");
   newDivCol1.addClass("col-md-1");
   newDivRow.append(newDivCol1);
@@ -56,8 +60,32 @@ for (var i = 0; i< dayHoursArr.length; i++) {
  }
  else if (hour > dayHoursArr[i].hourM) {
     newDivCol9.addClass("past")
+
+   
+   
  }
     
- console.log(moment(dayHours[i]));
+//  console.log(moment(dayHours[i]));
   
 }
+// var storePlans =  newInput9.val();
+
+$(document).on('click','i', function(event) {
+    event.preventDefault();  
+
+    var usersInput = 
+    {
+        text: newInput9.val()
+    };
+    var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+
+    console.log(usersArray);
+    usersArray.push(usersInput);
+    localStorage.setItem('usersInput', JSON.stringify(usersArray));
+    // var storePlans =  newInput9.val();
+    // var storePlansArray =  (localStorage.getItem('storePlans')) || [];
+    // storePlans.push(storePlansArray);
+    // localStorage.setItem("storePlans", JSON.stringify(storePlansArray));
+
+    console.log(usersInput);
+  }); 
