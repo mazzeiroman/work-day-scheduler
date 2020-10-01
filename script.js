@@ -11,6 +11,7 @@ var dayHours =["9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM"
 var hour = moment().format('HH');
 console.log(hour)
 
+var textStrings = [];
 var dayHoursArr = [
 {hour:"9 AM", hourM:9}, 
 {hour:"10 AM", hourM:10}, 
@@ -22,7 +23,19 @@ var dayHoursArr = [
 {hour:"4 PM", hourM:16},
 {hour:"5 PM", hourM:17},
 ];
+for ( var i=0; i< dayHoursArr.length; i++){
+    textStrings[i]="";
+}
 
+usersArray.forEach(object => {
+    if (object.hour){
+        let index =  parseInt(object.hour)-1
+        textStrings[index]= object.text
+    }
+    console.log(textStrings)
+   
+
+});
 var hourIndex = [1,2,3,4,5,6,7,8,9];
 var saveId = [1,2,3,4,5,6,7,8,9];
 
@@ -48,7 +61,8 @@ for (var i = 0; i< dayHoursArr.length; i++) {
   var newInput9 = $("<input>");
   newInput9.addClass("dailyPlan");
   newInput9.attr('hourIndex', hourIndex[i]);
-//   newInput9.text(textStrings[i]);
+  newInput9.val(textStrings[i])
+
   
   newDivCol9.append(newInput9);
 
@@ -106,23 +120,23 @@ for (var i = 0; i< dayHoursArr.length; i++) {
     usersArray.push(usersInput);
     localStorage.setItem('usersInput', JSON.stringify(usersArray));
 
-    for ( var i=0; i< dayHoursArr.length; i++){
-        textStrings[i]="";
-    }
+    // for ( var i=0; i< dayHoursArr.length; i++){
+    //     textStrings[i]="";
+    // }
     
-    usersArray.forEach(Object => {
-        if (Object.hour){
-            let index =  parseInt(Object.hour-1)
-            textStrings[index]= Object.text
-        }
-        console.log(textStrings)
+    // usersArray.forEach(object => {
+    //     if (object.hour){
+    //         let index =  parseInt(object.hour)-1
+    //         textStrings[index]= object.text
+    //     }
+    //     console.log(textStrings)
        
     
-    });
+    // });
  
  });
 
-var textStrings = [];
+
 // for ( var i=0; i< dayHoursArr.length; i++){
 //     textStrings[i]="";
 // }
