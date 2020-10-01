@@ -1,6 +1,7 @@
-var storagearr = JSON.parse(localStorage.getItem("usersInput")) || [];
+var usersArray = JSON.parse(localStorage.getItem("usersInput")) || [];
 
-console.log(storagearr)
+console.log(usersArray)
+
 // console.log(moment());
     $("#currentDay").html(moment().format('dddd, '+ "MMM Do "));
 
@@ -74,6 +75,14 @@ for (var i = 0; i< dayHoursArr.length; i++) {
    
  }
 }
+var elementNodeList = document.querySelectorAll(".dailyPlan");
+console.log($(this).children("i").attr("data-id"));
+
+for (var i = 0; i< elementNodeList.length; i++) {
+    console.log(elementNodeList[i]);
+    elementNodeList[i].textContent = "hello";
+    // elementNodeList.
+}
  $(document).on('click', '.save', function(event) {
     event.preventDefault();  
 
@@ -87,34 +96,19 @@ for (var i = 0; i< dayHoursArr.length; i++) {
         text: col1.val(),
         hour: hourI
     };
-    var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
+    // var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
     // SET TO LOCAL STORAGE 
     console.log(usersArray);
     usersArray.push(usersInput);
     localStorage.setItem('usersInput', JSON.stringify(usersArray));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    for (var i =0; i< dayHoursArr.length; i++) {
-
-     var textInp = $(".dailyPlan").val(dayHoursArr[i].text)
-     console.log(textInp)
-//    var savedImput = $(".dailyPlan").text(usersInput.text)
-//    newInput9.append(savedImput)
-    }
-    // THEN GET IT FROM LOCAL STORAGE
-    // getFromLocalStorage()
  
  });
 
+
+ for (var i =0; i< storagearr.length; i++) {
+
+    var textInp = $(".dailyPlan").val(dayHoursArr[i].hour)
+    console.log(textInp)
+//    var savedImput = $(".dailyPlan").text(usersInput.text)
+//    newInput9.append(savedImput)
+   }
