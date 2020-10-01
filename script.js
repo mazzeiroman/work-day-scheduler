@@ -23,6 +23,7 @@ var dayHoursArr = [
 {hour:"4 PM", hourM:16},
 {hour:"5 PM", hourM:17},
 ];
+
 for ( var i=0; i< dayHoursArr.length; i++){
     textStrings[i]="";
 }
@@ -47,7 +48,7 @@ for (var i = 0; i< dayHoursArr.length; i++) {
     container.append(newDivRow);
 
   var newDivCol2 =  $("<div>" + "</div>");
-  newDivCol2.addClass("col-md-2");
+  newDivCol2.addClass("col-md-2 hour");
   newDivRow.append(newDivCol2);
 
   var spanCol2 = $("<span>"+ dayHoursArr[i].hour + "</span>");
@@ -62,16 +63,12 @@ for (var i = 0; i< dayHoursArr.length; i++) {
   newInput9.addClass("dailyPlan");
   newInput9.attr('hourIndex', hourIndex[i]);
   newInput9.val(textStrings[i])
-
-  
   newDivCol9.append(newInput9);
 
-//   var storePlans =  newInput9.val();
-//   console.log(storePlans);
 
 
   var newDivCol1 =  $("<div>" + "</div>");
-  newDivCol1.addClass("col-md-1 save");
+  newDivCol1.addClass("col-md-1 save saveBtn");
   newDivRow.append(newDivCol1);
 
   var icon = $("<i>" + "</i>");
@@ -91,14 +88,6 @@ for (var i = 0; i< dayHoursArr.length; i++) {
    
  }
 }
-// var elementNodeList = document.querySelectorAll(".dailyPlan");
-// console.log($(this).children("i").attr("data-id"));
-
-// for (var i = 0; i< elementNodeList.length; i++) {
-//     console.log(elementNodeList[i]);
-//     elementNodeList[i].textContent = "hello";
-//     // elementNodeList.
-// }
 
 
  $(document).on('click', '.save', function(event) {
@@ -114,45 +103,13 @@ for (var i = 0; i< dayHoursArr.length; i++) {
         text: col1.val(),
         hour: hourI
     };
-    // var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
-    // SET TO LOCAL STORAGE 
+  
     console.log(usersArray);
     usersArray.push(usersInput);
     localStorage.setItem('usersInput', JSON.stringify(usersArray));
 
-    // for ( var i=0; i< dayHoursArr.length; i++){
-    //     textStrings[i]="";
-    // }
-    
-    // usersArray.forEach(object => {
-    //     if (object.hour){
-    //         let index =  parseInt(object.hour)-1
-    //         textStrings[index]= object.text
-    //     }
-    //     console.log(textStrings)
-       
-    
-    // });
+   
  
  });
 
 
-// for ( var i=0; i< dayHoursArr.length; i++){
-//     textStrings[i]="";
-// }
-
-// usersArray.forEach(Object => {
-//     if (Object.hour){
-//         let index =  parseInt(Object.hour)
-//         textStrings[index]= Object.text
-//     }
-//     console.log(textStrings)
-// });
-
-//  for (var i =0; i< storagearr.length; i++) {
-
-//     var textInp = $(".dailyPlan").val(dayHoursArr[i].hour)
-//     console.log(textInp)
-// //    var savedImput = $(".dailyPlan").text(usersInput.text)
-// //    newInput9.append(savedImput)
-//    }
