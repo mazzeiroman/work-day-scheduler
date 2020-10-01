@@ -56,7 +56,7 @@ for (var i = 0; i< dayHoursArr.length; i++) {
 
   var icon = $("<i>" + "</i>");
   icon.addClass("far fa-2x fa-save");
-  icon.attr('saveId', saveId[i]);
+  icon.attr('data-id', saveId[i]);
   newDivCol1.append(icon);
 
   if (hour == dayHoursArr[i].hourM) {
@@ -75,11 +75,14 @@ for (var i = 0; i< dayHoursArr.length; i++) {
     event.preventDefault();  
 
    var col1 = $(this).closest(".row").find("input");
-    console.log($(col1).val());
+   var hourI =$(this).children("i").attr("data-id");
+   console.log(hourI);
+    // console.log($(col1).val());
   
         var usersInput =
     {
-        text: col1.val()
+        text: col1.val(),
+        hour: hourI
     };
     var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
     // SET TO LOCAL STORAGE 
@@ -87,6 +90,8 @@ for (var i = 0; i< dayHoursArr.length; i++) {
     usersArray.push(usersInput);
     localStorage.setItem('usersInput', JSON.stringify(usersArray));
     for (var i =0; i< dayHoursArr.length; i++) {
+
+        
 //    var savedImput = $(".dailyPlan").text(usersInput.text)
 //    newInput9.append(savedImput)
     }
