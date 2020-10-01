@@ -48,6 +48,8 @@ for (var i = 0; i< dayHoursArr.length; i++) {
   var newInput9 = $("<input>");
   newInput9.addClass("dailyPlan");
   newInput9.attr('hourIndex', hourIndex[i]);
+//   newInput9.text(textStrings[i]);
+  
   newDivCol9.append(newInput9);
 
 //   var storePlans =  newInput9.val();
@@ -75,14 +77,16 @@ for (var i = 0; i< dayHoursArr.length; i++) {
    
  }
 }
-var elementNodeList = document.querySelectorAll(".dailyPlan");
-console.log($(this).children("i").attr("data-id"));
+// var elementNodeList = document.querySelectorAll(".dailyPlan");
+// console.log($(this).children("i").attr("data-id"));
 
-for (var i = 0; i< elementNodeList.length; i++) {
-    console.log(elementNodeList[i]);
-    elementNodeList[i].textContent = "hello";
-    // elementNodeList.
-}
+// for (var i = 0; i< elementNodeList.length; i++) {
+//     console.log(elementNodeList[i]);
+//     elementNodeList[i].textContent = "hello";
+//     // elementNodeList.
+// }
+
+
  $(document).on('click', '.save', function(event) {
     event.preventDefault();  
 
@@ -101,14 +105,40 @@ for (var i = 0; i< elementNodeList.length; i++) {
     console.log(usersArray);
     usersArray.push(usersInput);
     localStorage.setItem('usersInput', JSON.stringify(usersArray));
+
+    for ( var i=0; i< dayHoursArr.length; i++){
+        textStrings[i]="";
+    }
+    
+    usersArray.forEach(Object => {
+        if (Object.hour){
+            let index =  parseInt(Object.hour-1)
+            textStrings[index]= Object.text
+        }
+        console.log(textStrings)
+       
+    
+    });
  
  });
 
+var textStrings = [];
+// for ( var i=0; i< dayHoursArr.length; i++){
+//     textStrings[i]="";
+// }
 
- for (var i =0; i< storagearr.length; i++) {
+// usersArray.forEach(Object => {
+//     if (Object.hour){
+//         let index =  parseInt(Object.hour)
+//         textStrings[index]= Object.text
+//     }
+//     console.log(textStrings)
+// });
 
-    var textInp = $(".dailyPlan").val(dayHoursArr[i].hour)
-    console.log(textInp)
-//    var savedImput = $(".dailyPlan").text(usersInput.text)
-//    newInput9.append(savedImput)
-   }
+//  for (var i =0; i< storagearr.length; i++) {
+
+//     var textInp = $(".dailyPlan").val(dayHoursArr[i].hour)
+//     console.log(textInp)
+// //    var savedImput = $(".dailyPlan").text(usersInput.text)
+// //    newInput9.append(savedImput)
+//    }
