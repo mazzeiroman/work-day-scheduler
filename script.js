@@ -82,12 +82,12 @@ for (var i = 0; i< dayHoursArr.length; i++) {
         text: col1.val()
     };
     var usersArray =  JSON.parse(localStorage.getItem('usersInput')) || [];
-    // SET TO LOCAL STORAGE FIRST:
+    // SET TO LOCAL STORAGE 
     console.log(usersArray);
     usersArray.push(usersInput);
     localStorage.setItem('usersInput', JSON.stringify(usersArray));
     for (var i =0; i< dayHoursArr.length; i++) {
-   var savedImput = $(".dailyPlan").text(usersInput.text)
+//    var savedImput = $(".dailyPlan").text(usersInput.text)
 //    newInput9.append(savedImput)
     }
     // THEN GET IT FROM LOCAL STORAGE
