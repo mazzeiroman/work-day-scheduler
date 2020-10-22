@@ -14,7 +14,7 @@ README.md
 >images (the directory contains all the images for the project)
 ```
 
-## Deplyed Site
+## Deployed Site
 
 ![](images/page.jpg)
 
